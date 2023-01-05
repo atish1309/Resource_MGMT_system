@@ -4,7 +4,9 @@ import (
 	"log"
 	"net/http"
 
+	"./pkg/controllers"
 	"github.com/gorilla/mux"
+
 	//"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -12,7 +14,7 @@ import (
 var routesfunc = func(router *mux.Router) {
 	router.HandleFunc("/book/", controllers.CreateBook).Methods("POST")
 	router.HandleFunc("/book/", controllers.GetBook).Methods("GET")
-	router.HandleFunc("/book/{bookId}", controllers.GetBookbyID).Methods("GET")
+	router.HandleFunc("/book/{bookId}", controllers.GetBookbyId).Methods("GET")
 	router.HandleFunc("/book/{bookId}", controllers.UpdateBook).Methods("PUT")
 	router.HandleFunc("/book/{bookId}", controllers.DeleteBook).Methods("DELETE")
 }
